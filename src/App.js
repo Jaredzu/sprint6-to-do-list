@@ -1,22 +1,26 @@
-import logo from './logo.svg';
-import './App.css';
+import Title from './Components/Title/Title';
+import TodoInput from './Components/TodoInput/TodoInput';
+import TodoList from './Components/TodoList/TodoList';
+import Task from './Components/Task/Task.jsx';
+import { useEffect } from 'react';
+import './App.sass'
 
 function App() {
+
+  useEffect(() => {
+    document.title = "TodoList Sprint6 Jared"
+  }, []);
+
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <Title />
+        <TodoInput />
+        <TodoList>
+          <Task />
+          <Task />
+          <Task />
+        </TodoList>
       </header>
     </div>
   );
