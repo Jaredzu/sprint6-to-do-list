@@ -4,17 +4,17 @@ import closeIcon from '../images/icon-cross.svg'
 import checkIcon from '../images/icon-check.svg'
 
 
-const Task = ({ todo }) => {
+const Task = ({ todo, handleSetComplete }) => {
   return (
     <div className='todosContainer'>
       <div className='task'>
         {
           todo.completed ? (
-            <div className="taskCompleted">
+            <div onClick={()=> handleSetComplete(todo.id)} className="taskCompleted">
               <img src={checkIcon} alt="task completed" />
             </div>
           ) : (
-            <i className='fa-regular fa-circle'></i>
+            <i onClick={()=> handleSetComplete(todo.id)} className='fa-regular fa-circle'></i>
           )
         }
         <p className={(todo.completed && 'todoItemCheck')} >{todo.title}</p>

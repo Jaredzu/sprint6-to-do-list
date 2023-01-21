@@ -48,6 +48,21 @@ const App = () => {
     setTodos(todoList)
   }
 
+  //------------ SET COMPLETED TASKS --------- //
+
+  const handleSetComplete = (_id) => {
+    let listUpdate = todos.map(todo => {
+      if (todo.id === _id) {
+        return { ...todo, completed: !todo.completed }
+      }
+
+      return todo
+    })
+
+    setTodos(listUpdate)
+
+  }
+
 
   useEffect(() => {
     document.title = "TodoList Sprint6 Jared"
@@ -58,7 +73,10 @@ const App = () => {
       <header className="App-header">
         <Title />
         <TodoInput addNewTodo={addNewTodo} />
-        <TodoList todos={todos} />
+        <TodoList
+          todos={todos}
+          handleSetComplete={handleSetComplete}
+        />
       </header>
     </div>
   );
