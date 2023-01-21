@@ -1,12 +1,31 @@
-import React from 'react'
+import React, { useState } from 'react'
 
-const TodoInput = () => {
+
+const TodoInput = ({ addNewTodo }) => {
+
+  const [title, setTitle] = useState('')
+  console.log("nuevo valor: ", title);
+
+  const handleNewTodo = (event) => {
+    if (event.key === 'Enter') {
+      addNewTodo(title)
+      setTitle('')
+    }
+
+  }
+
   return (
     <div className='todoInputContainer'>
       <div className='circle'>
         <i className='fa-regular fa-circle'></i>{' '}
       </div>
-      <input className='inputTodo' type='text' placeholder="What's next..." />
+      <input className='inputTodo'
+        type='text'
+        placeholder="What's next..."
+        onChange={event => setTitle(event.target.value)}
+        value={title}
+        onKeyDown={event => handleNewTodo(event)}
+      />
     </div>
   )
 }

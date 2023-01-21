@@ -1,10 +1,15 @@
 import React from 'react'
 import Filters from '../Filters/Filters'
+import Task from '../Task/Task'
 
-const TodoList = ({ children }) => {
+const TodoList = ({ todos }) => {
   return (
     <div className='newTask'>
-      {children}
+      {todos.map(todo => {
+        return (
+          <Task key={todo.id} todo={todo} />
+        )
+      })}
       <Filters />
     </div>
   )
