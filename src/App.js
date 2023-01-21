@@ -63,6 +63,13 @@ const App = () => {
 
   }
 
+  //------------ DELETE TO DO ----------//
+
+  const handleDelete = (_id) => {
+    let listUpdate = todos.filter(todo => todo.id !== _id)
+    setTodos(listUpdate)
+  }
+
 
   useEffect(() => {
     document.title = "TodoList Sprint6 Jared"
@@ -76,6 +83,7 @@ const App = () => {
         <TodoList
           todos={todos}
           handleSetComplete={handleSetComplete}
+          handleDelete={handleDelete}
         />
       </header>
     </div>
