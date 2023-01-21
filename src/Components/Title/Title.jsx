@@ -5,7 +5,7 @@ const Title = () => {
   return (
     <div className='toDoHeader'>
       <h1>TODO</h1>
-      <img src={moonIcon} alt='dark theme' />
+      <img src={sunIcon} alt='Light theme' />
     </div>
   )
 }

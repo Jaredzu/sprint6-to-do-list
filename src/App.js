@@ -5,7 +5,7 @@ import Task from './Components/Task/Task.jsx';
 import { useEffect } from 'react';
 import './App.sass'
 
-function App() {
+const App = () => {
 
   useEffect(() => {
     document.title = "TodoList Sprint6 Jared"

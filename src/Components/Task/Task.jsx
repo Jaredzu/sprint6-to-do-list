@@ -5,7 +5,7 @@ import closeIcon from '../images/icon-cross.svg'
 const Task = () => {
   return (
     <div className='todosContainer'>
-      <div>
+      <div className='task'>
         <i className='fa-regular fa-circle'></i>
         <p className='todoItem'>Todo item Example</p>
       </div>
