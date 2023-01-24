@@ -1,51 +1,29 @@
 import Title from './Components/Title/Title';
 import TodoInput from './Components/TodoInput/TodoInput';
 import TodoList from './Components/TodoList/TodoList';
-import Task from './Components/Task/Task.jsx';
+import Filters from './Components/Filters/Filters'
+import config from "./config";
 import { useEffect, useState } from 'react';
 import './App.sass'
 
 const App = () => {
 
-  const [todos, setTodos] = useState([
-    {
-      id: 1,
-      title: '1 Todo Example number 1',
-      completed: false
-    },
-    {
-      id: 2,
-      title: '2 Todo Example number 2',
-      completed: false
-    },
-    {
-      id: 3,
-      title: '3 Todo Example number 3',
-      completed: false
-    },
-    {
-      id: 4,
-      title: '4 Todo Example number 3',
-      completed: false
-    }
 
-  ])
+  const [todos, setTodos] = useState(config.defaultTodos)
+  const [activeFilter, setActiveFilter] = useState(config.all)
+  const [filteredTodos, setFilteredTodos] = useState(todos)
 
   //------------ ADD NEW TODO ---------------//
 
   const addNewTodo = (title) => {
-    const lastId = todos.length > 0 ? todos[todos.length - 1].id : 1;
 
     const newTodo = {
-      id: lastId + 1,
+      id: todos.length > 0 ? todos.length : 1,
       title,
       completed: false
     }
 
-    const todoList = [...todos]
-
-    todoList.push(newTodo)
-    setTodos(todoList)
+    setTodos([...todos, newTodo])
   }
 
   //------------ SET COMPLETED TASKS --------- //
@@ -70,6 +48,30 @@ const App = () => {
     setTodos(listUpdate)
   }
 
+  const clearCompleted = () => {
+    let listUpdate = todos.filter(todo => !todo.completed)
+    setFilteredTodos(listUpdate) //-------------------------- setTodos ???
+  }
+
+
+  //------------- FILTERS FUNCTIONS -----------//
+
+  useEffect(() => {
+    if (activeFilter === config.all) {
+      setFilteredTodos(todos)
+    } else if (activeFilter === config.active) {
+      let activeTodos = todos.filter(todo => todo.completed === false)
+      setFilteredTodos(activeTodos)
+    } else if (activeFilter === config.completed) {
+      let completedTodos = todos.filter(todo => todo.completed === true)
+      setFilteredTodos(completedTodos)
+    }
+
+  }, [activeFilter, todos])
+
+
+
+
 
   useEffect(() => {
     document.title = "TodoList Sprint6 Jared"
@@ -81,10 +83,17 @@ const App = () => {
         <Title />
         <TodoInput addNewTodo={addNewTodo} />
         <TodoList
-          todos={todos}
+          todos={filteredTodos}
           handleSetComplete={handleSetComplete}
           handleDelete={handleDelete}
         />
+        <Filters
+          items={todos.length}
+          activeFilter={activeFilter}
+          setActiveFilter={setActiveFilter}
+          clearCompleted={clearCompleted}
+        />
+
       </header>
     </div>
   );

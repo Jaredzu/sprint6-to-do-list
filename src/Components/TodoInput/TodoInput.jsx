@@ -7,7 +7,7 @@ const TodoInput = ({ addNewTodo }) => {
   console.log("nuevo valor: ", title);
 
   const handleNewTodo = (event) => {
-    if (event.key === 'Enter') {
+    if (event.key === 'Enter' && event.target.value !== "") {
       addNewTodo(title)
       setTitle('')
     }

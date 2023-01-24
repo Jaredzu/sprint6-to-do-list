@@ -15,8 +15,13 @@ const FilterButtonContainer = ({ children }) => {
 }
 
 const FilterButton = ({ action, active, filter }) => {
+
+  const handleClick = () => {
+    action(filter)
+  }
+
   return (
-    <button className={(active.toLowerCase().includes(filter.toLowerCase())) ? 'filter-button-blue' : 'filter-button-gray'}>
+    <button onClick={handleClick} className={(active === filter) ? 'filter-button-blue' : 'filter-button-gray'}>
       {filter}
     </button>
   )

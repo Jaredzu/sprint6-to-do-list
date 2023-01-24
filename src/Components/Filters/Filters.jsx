@@ -1,19 +1,24 @@
 import React from 'react'
 import { FilterButton, FilterButtonContainer, FiltersComponets, ItemsLeft } from './FiltersComponets'
+import config from '../../config'
 
-
-const Filters = () => {
+const Filters = ({
+  items,
+  activeFilter,
+  setActiveFilter,
+  clearCompleted
+}) => {
   return (
     <div className='filtersSection'>
       <FiltersComponets>
-        <ItemsLeft />
+        <ItemsLeft items={items} />
         <FilterButtonContainer>
-          <FilterButton action={() => { }} active="All" filter='All' />
-          <FilterButton action={() => { }} active="All" filter='Active' />
-          <FilterButton action={() => { }} active="All" filter='Completed' />
+          <FilterButton action={setActiveFilter} active={activeFilter} filter={config.all} />
+          <FilterButton action={setActiveFilter} active={activeFilter} filter={config.active} />
+          <FilterButton action={setActiveFilter} active={activeFilter} filter={config.completed} />
         </FilterButtonContainer>
 
-        <button className='filter-button-gray'>
+        <button onClick={clearCompleted} className='filter-button-gray'>
           Clear Completed
         </button>
       </FiltersComponets>

@@ -1,8 +1,10 @@
 import React from 'react'
-import Filters from '../Filters/Filters'
 import Task from '../Task/Task'
 
-const TodoList = ({ todos, handleSetComplete,handleDelete}) => {
+const TodoList = ({ todos,
+  handleSetComplete,
+  handleDelete,
+}) => {
   return (
     <div className='newTask'>
       {todos.map(todo => {
@@ -10,10 +12,9 @@ const TodoList = ({ todos, handleSetComplete,handleDelete}) => {
           <Task key={todo.id}
             todo={todo}
             handleSetComplete={handleSetComplete}
-            handleDelete={handleDelete}/>
+            handleDelete={handleDelete} />
         )
       })}
-      <Filters />
     </div>
   )
 }
