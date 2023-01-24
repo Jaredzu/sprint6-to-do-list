@@ -50,7 +50,7 @@ const App = () => {
 
   const clearCompleted = () => {
     let listUpdate = todos.filter(todo => !todo.completed)
-    setFilteredTodos(listUpdate) //-------------------------- setTodos ???
+    setTodos(listUpdate) //-------------------------- setTodos ???
   }
 
 
