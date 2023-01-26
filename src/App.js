@@ -3,13 +3,16 @@ import TodoInput from './Components/TodoInput/TodoInput';
 import TodoList from './Components/TodoList/TodoList';
 import Filters from './Components/Filters/Filters'
 import config from "./config";
+import userTodos from './userTodos';
 import { useEffect, useState } from 'react';
 import './App.sass'
 
 const App = () => {
 
-
-  const [todos, setTodos] = useState(config.defaultTodos)
+  //------------- LOCAL STORAGE ---------------//
+/*   let todosParsed = JSON.parse(localStorage.getItem("todosLocal"))
+ */
+  const [todos, setTodos] = useState(userTodos.userTodos)
   const [activeFilter, setActiveFilter] = useState(config.all)
   const [filteredTodos, setFilteredTodos] = useState(todos)
 
@@ -18,12 +21,13 @@ const App = () => {
   const addNewTodo = (title) => {
 
     const newTodo = {
-      id: todos.length > 0 ? todos.length : 1,
+      id: todos.length >= 0 ? todos.length : 1,
       title,
       completed: false
     }
 
     setTodos([...todos, newTodo])
+    console.log(todos)
   }
 
   //------------ SET COMPLETED TASKS --------- //
@@ -39,6 +43,7 @@ const App = () => {
 
     setTodos(listUpdate)
 
+
   }
 
   //------------ DELETE TO DO ----------//
@@ -50,8 +55,19 @@ const App = () => {
 
   const clearCompleted = () => {
     let listUpdate = todos.filter(todo => !todo.completed)
-    setTodos(listUpdate) //-------------------------- setTodos ???
+    setTodos(listUpdate)
   }
+
+
+
+/*   useEffect(() => {
+    
+    let todosLocal = JSON.stringify(todosParsed)
+    localStorage.setItem("todosLocal", todosLocal)
+    console.log(`local storage update: ${todosLocal}`);
+
+  }, [todos])
+   */
 
 
   //------------- FILTERS FUNCTIONS -----------//
@@ -68,8 +84,6 @@ const App = () => {
     }
 
   }, [activeFilter, todos])
-
-
 
 
 
