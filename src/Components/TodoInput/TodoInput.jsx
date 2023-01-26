@@ -4,7 +4,7 @@ import React, { useState } from 'react'
 const TodoInput = ({ addNewTodo }) => {
 
   const [title, setTitle] = useState('')
-  console.log("nuevo valor: ", title);
+  /*   console.log("nuevo valor: ", title);*/
 
   const handleNewTodo = (event) => {
     if (event.key === 'Enter' && event.target.value !== "") {
