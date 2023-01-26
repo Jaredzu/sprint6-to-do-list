@@ -10,8 +10,8 @@ import './App.sass'
 const App = () => {
 
   //------------- LOCAL STORAGE ---------------//
-/*   let todosParsed = JSON.parse(localStorage.getItem("todosLocal"))
- */
+  /*   let todosParsed = JSON.parse(localStorage.getItem("todosLocal"))
+   */
   const [todos, setTodos] = useState(userTodos.userTodos)
   const [activeFilter, setActiveFilter] = useState(config.all)
   const [filteredTodos, setFilteredTodos] = useState(todos)
@@ -60,14 +60,14 @@ const App = () => {
 
 
 
-/*   useEffect(() => {
-    
-    let todosLocal = JSON.stringify(todosParsed)
-    localStorage.setItem("todosLocal", todosLocal)
-    console.log(`local storage update: ${todosLocal}`);
-
-  }, [todos])
-   */
+  /*   useEffect(() => {
+      
+      let todosLocal = JSON.stringify(todosParsed)
+      localStorage.setItem("todosLocal", todosLocal)
+      console.log(`local storage update: ${todosLocal}`);
+  
+    }, [todos])
+     */
 
 
   //------------- FILTERS FUNCTIONS -----------//
@@ -96,6 +96,8 @@ const App = () => {
       <header className="App-header">
         <Title />
         <TodoInput addNewTodo={addNewTodo} />
+      </header>
+      <section>
         <TodoList
           todos={filteredTodos}
           handleSetComplete={handleSetComplete}
@@ -107,8 +109,7 @@ const App = () => {
           setActiveFilter={setActiveFilter}
           clearCompleted={clearCompleted}
         />
-
-      </header>
+      </section>
     </div>
   );
 }

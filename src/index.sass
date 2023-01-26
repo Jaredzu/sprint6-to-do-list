@@ -4,15 +4,23 @@
 body
   font-family: 'Josefin Sans', sans-serif
   background-color: #161722
-  background-image: url('./Components/images/bg-desktop-dark.jpg')
-  background-repeat: no-repeat
-  background-size: contain
+  margin: 0
+
+  .App
+    display: flex
+    flex-direction: column
+    justify-content: center
+
+  .App-header
+    background-image: url('./Components/images/bg-desktop-dark.jpg')
+    background-repeat: no-repeat
+    background-size: cover
 
   .toDoHeader
     display: flex
     justify-content: space-between
     align-items: center
-    max-width: 70%
+    max-width: 30%
     margin: 1rem auto
 
     h1
@@ -21,8 +29,8 @@ body
       letter-spacing: 30px
 
   .todoInputContainer
-    margin: 1rem
-    width: 70%
+    margin: 1rem auto
+    width: 30%
     position: relative
 
     .inputTodo
@@ -37,6 +45,9 @@ body
       font-size: 1.1rem
       padding-left: 2.5rem
       box-shadow: 0px 13px 21px -1px rgba(0,0,0,0.49)
+      transition: 300ms
+      &:hover
+        box-shadow: 0px 13px 21px 0px #1a108ef9
 
     .circle
       color: #5f5f5f
@@ -45,22 +56,19 @@ body
       top: 15px
 
   .newTask
-
     display: flex
     flex-direction: column
-    width: 75%
+    width: 50%
     color: hsl(234, 39%, 85%)
     font-size: 1.1rem
-    border-bottom: 1px solid rgb (57, 58, 75)
     background-color: hsl(237, 14%, 26%)
     border-radius: 7px
-    margin: 1rem
+    margin: 1rem auto
     box-shadow: 0px 13px 21px -1px rgba(0,0,0,0.49)
 
   .todosContainer
     display: flex
     align-items: center
-    justify-content: space-between
     padding: 0.2rem
     border-bottom: 1px solid #575572
     padding-left: 2.5rem
@@ -96,29 +104,49 @@ body
     display: flex
     align-items: center
     justify-content: space-between
-    width: 75%
+    width: 46%
     color: hsl(234, 39%, 85%)
     font-size: 1.1rem
     border-bottom: 1px solid rgb (57, 58, 75)
     background-color: hsl(237, 14%, 26%)
     border-radius: 3px
-    margin: 1rem
+    margin: auto
     padding: 0 2rem
 
-  .filter-button-blue
-    border: none
-    background: none
-    color: #8488ff
-    cursor: pointer
-    transition: 300ms
-    &:hover
-      color: white
+    .filter-button-blue
+      border: none
+      background: none
+      color: #8488ff
+      cursor: pointer
+      transition: 300ms
+      &:hover
+        color: white
 
-  .filter-button-gray
-    border: none
-    background: none
-    color: #5f5f5f
-    cursor: pointer
-    transition: 300ms
-    &:hover
-      color: white
+    .filter-button-gray
+      border: none
+      background: none
+      color: #5f5f5f
+      cursor: pointer
+      transition: 300ms
+      &:hover
+        color: white
+
+@media screen and (max-width: 625px)
+  body
+
+    .toDoHeader
+      margin: auto 4rem
+
+    .newTask
+      width: 90%
+      font-size: 1rem
+
+    .todoInputContainer
+      width: 78%
+      margin: 1rem
+
+  .filtersSection
+    .filtersComponents
+      width: 78%
+      color: hsl(234, 39%, 85%)
+      font-size: 0.9rem
