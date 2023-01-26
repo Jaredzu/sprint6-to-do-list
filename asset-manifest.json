@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/sprint6-to-do-list/static/css/main.b0114cb6.css",
-    "main.js": "/sprint6-to-do-list/static/js/main.444542e0.js",
+    "main.js": "/sprint6-to-do-list/static/js/main.a173d004.js",
     "static/media/bg-desktop-dark.jpg": "/sprint6-to-do-list/static/media/bg-desktop-dark.73e47dbb723ebc772ef0.jpg",
     "index.html": "/sprint6-to-do-list/index.html",
     "static/media/icon-sun.svg": "/sprint6-to-do-list/static/media/icon-sun.910b1f9a23741afc341e95653a51f14f.svg",
@@ -9,10 +9,10 @@
     "static/media/icon-cross.svg": "/sprint6-to-do-list/static/media/icon-cross.6ee81d30b75cab19d6f7314624fcc4d6.svg",
     "static/media/icon-check.svg": "/sprint6-to-do-list/static/media/icon-check.a8fb15d0278c8e312df5fc8364fef863.svg",
     "main.b0114cb6.css.map": "/sprint6-to-do-list/static/css/main.b0114cb6.css.map",
-    "main.444542e0.js.map": "/sprint6-to-do-list/static/js/main.444542e0.js.map"
+    "main.a173d004.js.map": "/sprint6-to-do-list/static/js/main.a173d004.js.map"
   },
   "entrypoints": [
     "static/css/main.b0114cb6.css",
-    "static/js/main.444542e0.js"
+    "static/js/main.a173d004.js"
   ]
 }
